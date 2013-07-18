@@ -1,0 +1,241 @@
+<html>
+
+<head>
+<link href="./menu_assets/styles.css" rel="stylesheet" type="text/css">
+<style>
+body 
+{
+background-color:rgb(57,57,57);
+font-family:"Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;
+color:rgb(195,195,195);
+
+}
+h2
+{
+color:rgb(0,191,255);
+}
+.content
+{
+position:relative;
+//left:630px;
+}
+.header { height:120px; }
+
+.footer{
+position:relative;
+top:200px;
+bottom:100px;
+}
+
+.heading
+{
+color:silver;
+}
+input{
+background: #fff;
+border: 1px solid #c6c9cc;
+border-radius: 4px;
+box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1), 0 1px 0 #fff;
+font: 13px/20px 'Droid Sans', Arial, 'Helvetica Neue', 'Lucida Grande', sans-serif;
+margin: 0 0 20px 0;
+padding: 5px;
+width: 250px;
+height:35;
+font-size:100%;
+/*border-color:blue;*/
+}
+.error
+{
+color:orange;
+}
+</style>
+
+<script>
+function checkform()
+    {
+      var flag=0;
+      var fname=document.getElementById("name");
+      var password=document.getElementById("pass");
+      var pass_rep=document.getElementById("rep_pass");
+      
+		
+      
+      if(fname.value=="")
+      {  flag++;
+         document.getElementById("name").disabled = true;
+         document.getElementById("name").style.borderColor = 'yellow';        
+          document.getElementById("name").disabled = false;
+         document.getElementById("name_error").innerHTML = "This field must not be left empty";    
+          //return false;
+      }
+       if(document.getElementById("username").value=="")
+     {
+              document.getElementById("username").disabled = true;
+         document.getElementById("username").style.borderColor = 'yellow';        
+          document.getElementById("username").disabled = false;
+         document.getElementById("username_error").innerHTML = "This field must not be left empty";    
+         flag++;// return false;
+     } 
+   
+     if(password.value=="")
+     {
+       document.getElementById("pass").disabled = true;
+         document.getElementById("pass").style.borderColor = 'yellow';        
+          document.getElementById("pass").disabled = false;
+         document.getElementById("pass_error").innerHTML = "This field must not be left empty";    
+         flag++;// return false;
+     }
+	  if(password.value!="")
+     {
+          if(password.value.length <5 || password.value.length >10)
+		 {document.getElementById("pass").disabled = true;
+         document.getElementById("pass").style.borderColor = 'yellow';        
+          document.getElementById("pass").disabled = false;
+         document.getElementById("pass_error").innerHTML = "Password must have 5-10 characters only";    
+         flag++;// return false;
+		 }
+		 else
+		 {
+		   var ex=/\W/;
+		  if(ex.test(password.value))
+		   {document.getElementById("pass").disabled = true;
+         document.getElementById("pass").style.borderColor = 'yellow';        
+          document.getElementById("pass").disabled = false;
+         document.getElementById("pass_error").innerHTML = "Password must contain a-z, A-Z ,0-9, _ characters only";    
+         flag++;// return false;
+		     
+		   }
+		 }
+		 
+     }
+	
+    
+	  if(document.getElementById("email").value=="")
+     {
+              document.getElementById("email").disabled = true;
+         document.getElementById("email").style.borderColor = 'yellow';        
+          document.getElementById("email").disabled = false;
+         document.getElementById("email_error").innerHTML = "This field must not be left empty";    
+         flag++;// return false;
+     }
+	 if(document.getElementById("email").value!="")
+     {    
+	    
+         //var re = /\S+@\S+\.\S+/;
+		 /**        The official standard  known as RFC 2822 which I came across online **/
+		 var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          if(!re.test(email.value))
+		   {  document.getElementById("email").disabled = true;
+         document.getElementById("email").style.borderColor = 'yellow';        
+          document.getElementById("email").disabled = false;
+         document.getElementById("email_error").innerHTML = "Invalid e-mail id";    
+         flag++;// return false;
+		 }
+		 
+     }
+     if(pass_rep.value!=password.value)
+     {
+	document.getElementById("rep_pass").disabled = true;
+         document.getElementById("rep_pass").style.borderColor = 'yellow';        
+          document.getElementById("rep_pass").disabled = false;
+         document.getElementById("rep_pass_error").innerHTML = "The passwords donot match!";    
+         flag++;// return false;
+     } 
+     if(pass_rep.value=="")
+     {
+       document.getElementById("rep_pass").disabled = true;
+         document.getElementById("rep_pass").style.borderColor = 'yellow';        
+          document.getElementById("rep_pass").disabled = false;
+         document.getElementById("rep_pass_error").innerHTML = "This field must not be left empty";    
+         flag++;// return false;
+     }
+     
+     if(flag!=0)
+      return false;
+     else
+      return true;
+    }
+      
+    </script>
+
+
+</head>
+
+<body>
+
+
+      
+
+<div id='cssmenu' align="center">
+<ul>
+   <li style="width:50px"><span>&nbsp </span></li>
+   <li ><a href='home.html'><span>Home</span></a></li>
+   <li class="active"><a href='#'><span>Register</span></a></li>
+   <li><a href='login.php'><span>Login</span></a></li>
+   <li><a href='#'><span>About</span></a></li>
+</ul>
+</div>
+
+
+<div style="position:relative;top:80px" align="center">
+<h2 class="content">Register</h2>
+<div style="position:relative;">
+<form action="register.php" name="mainform" method="post" >
+    
+    <table>
+    
+    <tr ><td><div class="heading" id="namediv">Name<text style="color:red;">*</text></div></td></tr>
+    <tr ><td><div id="name_error" class="error"></div></td></tr>
+    <tr ><td><input type="text" name="name" id="name"  /></td></tr>
+    
+	 <tr ><td><div class="heading" id="namediv">User-name<text style="color:red;">*</text></div></td></tr>
+    <tr ><td><div id="username_error" class="error"></div></td></tr>
+    <tr ><td><input type="text" name="username" id="username"  /></td></tr>
+    
+    <tr ><td><div  class="heading">Date of Birth</div></td></tr>
+    <tr ><td><div id="dob_error" class="error"></div></td></tr>
+    <tr> <td><input type="date" name="txtDate" maxlength="10" id="dob"></td></tr> 
+      
+    
+	<tr><td><div class="heading">E-mail id<text style="color:red;">*</text></div></td></tr>
+    <tr ><td><div id="email_error" class="error"></div></td></tr>
+    <tr><td><input type="text" name="email" id="email"/></td></tr> 
+	 
+	
+	<tr><td><div class="heading">Mobile Number<text style="color:red;">(For SMS alerts)</text></div></td></tr>
+    <tr><td><input type="text" name="mob" id="mob"/></td></tr> 	
+    
+	
+    <tr><td><div class="heading">Password:<text style="color:red;">*</text></div></td></tr>
+    <tr ><td><div id="pass_error" class="error"></div></td></tr>
+    <tr><td><input type="password" id="pass" name="password" /></td></tr>
+
+    <tr><td><div class="heading">Repeat Password:<text style="color:red;">*</text></div></td></tr>
+     <tr ><td><div id="rep_pass_error" class="error"></div></td></tr>
+    <tr><td><input type="password" id="rep_pass" name="rep_pass" /></td></tr>
+    
+   
+    <tr ><td><div class="heading" ><text style="color:red;">*</text> -Required fields</div></td></tr>
+	 <tr ><td>
+	<div >
+	<br />
+    <input name="submit" type="submit" value="Submit" onclick="return checkform()"/>
+    </div>    
+    </td></tr>  
+	
+    </table> 
+    </form>
+
+</div>
+</div>
+
+
+<div class="footer" align="center">
+<text style="color:rgb(0,191,255)">Devoloped and Maintained by:</text><br />
+AnanthaNatarajan.S<br />
+ 112112008<br /><br /> &nbsp
+</div>
+
+</body>
+
+</html>
