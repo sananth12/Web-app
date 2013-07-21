@@ -1,18 +1,18 @@
 <?php 
         session_start();
-		if(isset($_SESSION['user']) && $_SESSION['user']!='' ){$username=$_SESSION['user'];}
+		if(isset($_SESSION['user']) && $_SESSION['user']!='' )
+		{$username=$_SESSION['user'];}
 		else
 		{
 			header("Location: login.php"); 
 		}
+		include "includes/connect.php";
 
-		
-		//Include phpMyGraph class  
         include_once('phpMyGraph4.0.php'); 
          
 		header("Content-type: image/png"); 
 		 
-		include "includes/connect.php";
+		
 
 		$arrval =array(0,20,100);
 		//$arrval = array(12,123,21,32,77,85,166,176,163,121);
@@ -20,7 +20,7 @@
 		//$conid=mysql_connect("localhost","root","");
 		//mysql_select_db("project",$conid);
 
-		$s=mysql_query("SELECT * FROM `".$username."` WHERE date!=''");
+		$s=mysql_query("SELECT * FROM `".$_SESSION['user']."` WHERE date!=''");
 		
 		$tot=array();
 		$done=array();
@@ -34,11 +34,10 @@
 			
 		} 
 		 
-		 
-                //Create config array for graph 
+		
         $cfg = array 
         ( 
-            'title'=>$username."'s Statistics of Total tasks planned / completed  Vs. Time ( in months )", 
+            'title'=>$_SESSION['user']."'s Statistics of Total tasks planned / completed  Vs. Time ( in months )", 
             'background-color'=>'FFFFFF', 
             'graph-background-color'=>'FFFFFF', 
             'font-color'=>'#18c5ea',
@@ -54,7 +53,7 @@
 			'font-size'=>18,
 			'transparent-background'=>1,
         ); 
-        //Create data array for graph 
+        
         $data = array 
         ( 
             'Jan-Total'=>$tot['01']+0, 
@@ -83,9 +82,9 @@
 				'Dec-Done'=>$done['12']+0
         ); 
          
-        //Create new graph  
+         
         $graph = new phpMyGraph(); 
          
-        //Parse vertical line graph 
+       
         $graph->parseVerticalColumnGraph($data,$cfg); 
 ?>
