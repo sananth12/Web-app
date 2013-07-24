@@ -5,7 +5,7 @@
 <link rel="icon" 
       type="image/png" 
       href="images/favicon.ico">
-<link type="text/javascript" source="validate.js">
+<link type="text/javascript" src="validate.js">
 <style>
 body 
 {
