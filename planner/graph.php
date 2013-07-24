@@ -78,6 +78,9 @@ cursor:hand;
 <div style="position:relative;top:20px">
 <img src="graph-lib.php"/>
 </div>
+<div style="position:relative;top:20px">
+<img src="bmi-graph.php"/>
+</div>
 </div>
 
 

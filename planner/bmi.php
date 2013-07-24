@@ -120,6 +120,7 @@ function bmi()
    <li><a href='#'><span>About</span></a></li>
    <li ><a href='logged.php'><span>Calender</span></a></li>
    <li class="active"><a href='bmi.html'><span>BMI Calculator</span></a></li>
+    <li><a href='graph.php'><span>Statistics</span></a></li>
    <li><a href='options.php'><span>Options</span></a></li>
    <li><a href='login.php'><span>Log Out</span></a></li>
 </ul>
@@ -177,7 +178,7 @@ include "includes/connect.php";
 $bmi=$_REQUEST['ibmi'];
 $date=date("Ymd");
 
-mysql_query("INSERT INTO `".$username."` (date,1t,2t,3t,4t,5t,array,total,done,bmi) 
+mysql_query("INSERT INTO `".$_SESSION['user']."` (date,1t,2t,3t,4t,5t,array,total,done,bmi) 
              VALUES ('$date','','','','','','','','','$bmi')
 			 ON DUPLICATE KEY UPDATE
 			 bmi='$bmi'	");
