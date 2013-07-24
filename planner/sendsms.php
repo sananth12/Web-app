@@ -163,7 +163,7 @@ $result[] = array('phone' => $p, 'msg' => urldecode($msg), 'result' => $res);
 
  
  
-  /*
+  
 curl_setopt($curl, CURLOPT_URL, "http://sms.fullonsms.com/logout.php?LogOut=1");
 
   curl_setopt($curl, CURLOPT_POST, 1);
@@ -175,7 +175,7 @@ curl_setopt($curl, CURLOPT_URL, "http://sms.fullonsms.com/logout.php?LogOut=1");
 
   curl_close($curl);
   return $result;
-*/
+
 echo "Done";
 }
  
