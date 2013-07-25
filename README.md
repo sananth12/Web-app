@@ -3,7 +3,7 @@ Web-app
 
 Project for Delta Inductions 2013.
 
-Link : delta-planner.hp.af.cm
+Link : http://delta-planner.hp.af.cm
 
 Anantha Natarajan.S
 
