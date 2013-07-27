@@ -202,11 +202,11 @@ AnanthaNatarajan.S<br />
 <?php
 
 #############################
-#   						#
+#                           #
 #     Anantha Natarajan.S   #  
-#         112112008	        #
+#         112112008         #
 #         sananth12         #
-#							#
+#                           #
 #############################
 
 if(isset($_POST['submit']))
@@ -317,11 +317,10 @@ $s=mysql_query("SELECT * FROM user_msg WHERE date='$dat' AND username='$username
 
 
 
-
-
-
 header("Location:"."http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 mysql_close($conid);			  
+
+echo "<script>alert('Saved!')</script>";
 }
 ?>
 </body>
