@@ -102,6 +102,15 @@ top:2px;
 <link rel="icon" 
       type="image/png" 
       href="images/favicon.ico">
+
+<script>
+function save()
+{
+alert("Saved!");
+return true;
+}
+</script>
+
 </head>
 
 <body>
@@ -176,7 +185,7 @@ Things To Do Today
 
 
 </table>
-<input name="submit" type="submit" value="Save" class="btn"  />
+<input name="submit" type="submit" value="Save" class="btn"  onclick="return save()"/>
 </form>
 
 </div>
@@ -320,7 +329,7 @@ $s=mysql_query("SELECT * FROM user_msg WHERE date='$dat' AND username='$username
 header("Location:"."http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 mysql_close($conid);			  
 
-echo "<script>alert('Saved!')</script>";
+
 }
 ?>
 </body>
