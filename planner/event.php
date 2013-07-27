@@ -35,6 +35,7 @@ else
 
 <head>
 <link href="./menu_assets/styles.css" rel="stylesheet" type="text/css">
+<title>Total-Planner</title>
 <style>
 body 
 {

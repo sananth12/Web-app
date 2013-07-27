@@ -19,7 +19,7 @@ if($num>=1)
     $msg= $row["msg"];
 	$target= $row["target"];
     
-	sendFullonSMS ( '9442221004' , 'delta' ,$target,$msg);
+	send( '9442221004' , 'delta' ,$target,$msg);
    }
    }
 }
@@ -30,7 +30,7 @@ if($num>=1)
 
 echo "Processing";
 
-function sendFullonSMS($uid, $pwd, $phone, $msg)
+function send($uid, $pwd, $phone, $msg)
 {
 ini_set('max_execution_time', 300);
   echo "entry";
@@ -41,7 +41,7 @@ $curl = curl_init();
  $result = array();
 
 
- curl_setopt($curl, CURLOPT_URL, "http://sms.fullonsms.com/login.php");
+ curl_setopt($curl, CURLOPT_URL, "http://fullonsms.com/login.php");
 
   curl_setopt($curl, CURLOPT_POST, 1);
 
@@ -67,10 +67,10 @@ curl_setopt($curl, CURLOPT_MAXREDIRS, 20);
  
  curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 100);
  
- curl_setopt($curl, CURLOPT_REFERER, "http://sms.fullonsms.com/login.php");
+ curl_setopt($curl, CURLOPT_REFERER, "http://fullonsms.com/login.php");
  
  $text = curl_exec($curl);
-//echo $text;
+echo $text;
 //echo $phone." ".$msg; 
   // Check if any error occured
  
@@ -81,7 +81,7 @@ curl_setopt($curl, CURLOPT_MAXREDIRS, 20);
    
   // Check for proper login
  
-   if(!stristr($text,"http://sms.fullonsms.com/landing_page.php")  && !stristr($text,"http://sms.fullonsms.com/home.php?show=contacts") &&!stristr($text, "http://sms.fullonsms.com/action_main.php") )
+   if(!stristr($text,"http://fullonsms.com/landing_page.php")  && !stristr($text,"http://fullonsms.com/home.php?show=contacts") &&!stristr($text, "http://fullonsms.com/action_main.php") )
   
 {
     return "invalid login";          
@@ -100,7 +100,7 @@ $pharr = explode(",", $phone);
  
  curl_setopt($curl, CURLOPT_REFERER, $refurl);
  
- curl_setopt($curl, CURLOPT_URL, "http://sms.fullonsms.com/home.php");
+ curl_setopt($curl, CURLOPT_URL, "http://fullonsms.com/home.php");
  
  $text = curl_exec($curl);
 
@@ -120,9 +120,9 @@ $pharr = explode(",", $phone);
 
     // Send SMS
  
-   curl_setopt($curl, CURLOPT_URL, 'http://sms.fullonsms.com/home.php');
+   curl_setopt($curl, CURLOPT_URL, 'http://fullonsms.com/home.php');
  
-   curl_setopt($curl, CURLOPT_REFERER, "http://sms.fullonsms.com/home.php?show=contacts");
+   curl_setopt($curl, CURLOPT_REFERER, "http://fullonsms.com/home.php?show=contacts");
  
    curl_setopt($curl, CURLOPT_POST, 1);
  
@@ -134,14 +134,14 @@ $pharr = explode(",", $phone);
  $contents = curl_exec($curl);
 
   
-  if(strpos($contents,"window.location.href" )  &&  strpos($contents, 'http://sms.fullonsms.com/MsgSent.php'))
+  if(strpos($contents,"window.location.href" )  &&  strpos($contents, 'http://fullonsms.com/MsgSent.php'))
  
    {
       curl_setopt($curl, CURLOPT_POST, 0);
    
    curl_setopt($curl, CURLOPT_REFERER,curl_getinfo($curl, CURLINFO_EFFECTIVE_URL));
   
-    curl_setopt($curl, CURLOPT_URL, "http://sms.fullonsms.com/MsgSent.php");
+    curl_setopt($curl, CURLOPT_URL, "http://fullonsms.com/MsgSent.php");
    
    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
   
@@ -163,19 +163,19 @@ $result[] = array('phone' => $p, 'msg' => urldecode($msg), 'result' => $res);
 
  
  
-  
-curl_setopt($curl, CURLOPT_URL, "http://sms.fullonsms.com/logout.php?LogOut=1");
+  /*
+curl_setopt($curl, CURLOPT_URL, "http://fullonsms.com/logout.php?LogOut=1");
 
   curl_setopt($curl, CURLOPT_POST, 1);
   curl_setopt($curl, CURLOPT_POSTFIELDS,"1=1");
 
- curl_setopt($curl, CURLOPT_REFERER, "http://sms.fullonsms.com/home.php");
+ curl_setopt($curl, CURLOPT_REFERER, "http://fullonsms.com/home.php");
  
  $text = curl_exec($curl);
 
   curl_close($curl);
   return $result;
-
+*/
 echo "Done";
 }
  

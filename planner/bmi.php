@@ -106,6 +106,8 @@ function bmi()
  document.getElementById("ibmi").value = ans; 
 }
 </script>
+
+<title>Total-Planner</title>
 </head>
 
 <body>

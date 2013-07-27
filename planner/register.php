@@ -1,6 +1,7 @@
 <html>
 
 <head>
+<title>Total-Planner</title>
 <style>
 body{
 font-family:"Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;

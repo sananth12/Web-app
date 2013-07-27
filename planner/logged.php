@@ -14,6 +14,7 @@ include "includes/connect.php";
 <html>
 
 <head>
+<title>Total-Planner</title>
 <link href="./menu_assets/styles.css" rel="stylesheet" type="text/css">
 <link rel="icon" 
       type="image/png" 
@@ -114,6 +115,9 @@ function init()
    var j=1;
    for(i=start+1;i<=days;i++,j++)
    {
+     var tmp=new Date();
+	 tmp.setDate(j);
+	
      document.getElementById(i).innerHTML=j;
 	 
    }
