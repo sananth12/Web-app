@@ -185,19 +185,14 @@ Things To Do Today
 
 
 </table>
-<input name="submit" type="submit" value="Save" class="btn"  onclick="return save()"/>
+<input name="submit" type="submit" value="Save" class="btn"  />
 </form>
 
 </div>
 </div>
 
 
-<div class="footer" align="center">
-<text style="color:rgb(0,191,255)">Devoloped and Maintained by:</text><br />
-AnanthaNatarajan.S<br />
- 112112008<br /><br /> &nbsp
 
-</div>
 
 
 
@@ -324,7 +319,7 @@ $s=mysql_query("SELECT * FROM user_msg WHERE date='$dat' AND username='$username
    }
 
 
-
+echo "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSaved";
 
 header("Location:"."http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 mysql_close($conid);			  
@@ -332,5 +327,16 @@ mysql_close($conid);
 
 }
 ?>
+
+<div class="footer" align="center">
+<text style="color:rgb(0,191,255)">Devoloped and Maintained by:</text><br />
+AnanthaNatarajan.S<br />
+ 112112008<br /><br />
+<a href="http://facebook.com/sananth12"><img src="images/facebok-icon.png" ></a>
+<a href="https://plus.google.com/110111970750333332975/posts?tab=XX"><img src="images/gplus-icon.png" ></a>
+<a href="https://twitter.com/AnanthaNatarjan"><img src="images/twitter-icon.png" ></a>
+
+
+</div>
 </body>
 </html>

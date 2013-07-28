@@ -36,7 +36,7 @@
 		   if($raw==0)
 		   {
 		      for($i=0;$i<$month;$i++)
-			  $data['2031-'.$i.'-01']=0;
+			  $data['2013-'.$i.'-01']=20+($i/2);
 		   
 		   }
 		    if($row['bmi']!=NULL)
@@ -54,12 +54,12 @@
             'graph-background-color'=>'FFFFFF', 
             'font-color'=>'#18c5ea',
 		    
-            'border-color'=>'FFFFFF', 
+            'border-color'=>'#18c5ea', 
             'column-color'=>'00FF00', 
             'column-shadow-color'=>'009900', 
             'column-font-color-q1'=>'#16c5ea', 
             'column-font-color-q2'=>'#000', 
-            'random-column-color'=>1, 
+            'random-column-color'=>0, 
             'width'=>$month*75,
 			'height'=>400,
 			'font-size'=>18,
@@ -71,6 +71,6 @@
         $graph = new phpMyGraph(); 
          
        
-       $graph->parseVerticalColumnGraph($data,$cfg); 
+       $graph->parseVerticalLineGraph($data,$cfg); 
 	   // $graph->parseVerticalLineGraph($data,$cfg); 
 ?>

@@ -99,7 +99,7 @@ function checkform()
    <li style="width:50px"><span>&nbsp </span></li>
    <li ><a href='home.html'><span>Home</span></a></li>
    <li><a href='register.html'><span>Register</span></a></li>
-   <li><a href='login.php'><span>Login</span></a></li>
+   <li class="active"><a href='login.php'><span>Login</span></a></li>
    <li><a href='#'><span>About</span></a></li>
     
 </ul>
@@ -148,7 +148,11 @@ User name:</td>
 <div class="footer" align="center">
 <text style="color:rgb(0,191,255)">Devoloped and Maintained by:</text><br />
 AnanthaNatarajan.S<br />
- 112112008<br /><br /> &nbsp
+ 112112008<br /><br />
+<a href="http://facebook.com/sananth12"><img src="images/facebok-icon.png" ></a>
+<a href="https://plus.google.com/110111970750333332975/posts?tab=XX"><img src="images/gplus-icon.png" ></a>
+<a href="https://twitter.com/AnanthaNatarjan"><img src="images/twitter-icon.png" ></a>
+
 
 </div>
 

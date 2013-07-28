@@ -113,14 +113,39 @@ function init()
    
    var i=0;
    var j=1;
-   for(i=start+1;i<=days;i++,j++)
+   
+    var pending=[<?php 
+	$s=mysql_query("SELECT * FROM `".$_SESSION['user']."` WHERE  total!=done ");
+	 $x=0;
+	 while($row=mysql_fetch_assoc($s))
+	 {
+	    if($x==0)
+		{echo '"'.$row['date'].'"';$x++;}
+		else
+		echo '"'.$row['date'].'"';
+		
+		echo ",";
+	 }
+	 ?>];
+	// alert(pending[0]);
+  for(i=start+1;i<=days;i++,j++)
    {
      var tmp=new Date();
 	 tmp.setDate(j);
 	
+	
+	//alert(tmp);
      document.getElementById(i).innerHTML=j;
 	 
+	 var y=tmp.getFullYear()+"-"+(tmp.getMonth()+1<10?"0"+(tmp.getMonth()+1):tmp.getMonth()+1)+"-"+(tmp.getDate()<10?"0"+tmp.getDate():tmp.getDate());
+	 if(pending.indexOf(y)>-1)
+	 {
+	   document.getElementById(i).innerHTML+="<text style='color:red'>*</text>";
+	 }
+	  
+	  
    }
+ 
  
 }
 var myDate=new Date();
@@ -208,10 +233,11 @@ function next()
 
 function plan(n)
 {
+    var s=(document.getElementById(n).innerHTML)+"";
+   s=s.replace(/[^0-9\.]+/g, "");
+   //alert(s);   
+   window.location.href = "event.php?day=" + s + "&month=" + document.getElementById("month").innerHTML+"&mm="+ (myDate.getMonth()+1)+"&yy="+myDate.getFullYear();
    
-   window.location.href = "event.php?day=" + document.getElementById(n).innerHTML + "&month=" + document.getElementById("month").innerHTML+"&mm="+ (myDate.getMonth()+1)+"&yy="+myDate.getFullYear();
-   
-	
  }
  
 </script>
@@ -243,7 +269,7 @@ function plan(n)
 
 &nbsp &nbsp 
 <span class="month" style="color:orange" onclick="next()"> >> </span> 
-
+<text style="color:red">*</text>-Tasks Pending
 <br />
 
 <table class="calender">
@@ -336,7 +362,11 @@ function plan(n)
 <div class="footer" align="center">
 <text style="color:rgb(0,191,255)">Devoloped and Maintained by:</text><br />
 AnanthaNatarajan.S<br />
- 112112008<br /><br /> &nbsp
+ 112112008<br /><br />
+<a href="http://facebook.com/sananth12"><img src="images/facebok-icon.png" ></a>
+<a href="https://plus.google.com/110111970750333332975/posts?tab=XX"><img src="images/gplus-icon.png" ></a>
+<a href="https://twitter.com/AnanthaNatarjan"><img src="images/twitter-icon.png" ></a>
+
 
 </div>
 

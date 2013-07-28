@@ -31,7 +31,7 @@ position:relative;
 
 .footer{
 position:relative;
-top:350px;
+top:300px;
 
 }
 .btn
@@ -78,6 +78,8 @@ cursor:hand;
 <div style="position:relative;top:20px">
 <img src="graph-lib.php"/>
 </div>
+<br />
+<br />
 <div style="position:relative;top:20px">
 <img src="bmi-graph.php"/>
 </div>
@@ -87,7 +89,11 @@ cursor:hand;
 <div class="footer" align="center">
 <text style="color:rgb(0,191,255)">Devoloped and Maintained by:</text><br />
 AnanthaNatarajan.S<br />
- 112112008<br /><br /> &nbsp
+ 112112008<br /><br /> 
+<a href="http://facebook.com/sananth12"><img src="images/facebok-icon.png" ></a>
+<a href="https://plus.google.com/110111970750333332975/posts?tab=XX"><img src="images/gplus-icon.png" ></a>
+<a href="https://twitter.com/AnanthaNatarjan"><img src="images/twitter-icon.png" ></a>
+
 
 </div>
 
