@@ -40,7 +40,7 @@ position:relative;
 
 .footer{
 position:relative;
-top:350px;
+top:250px;
 
 }
 .month

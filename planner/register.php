@@ -14,11 +14,11 @@ font-size:22px;
 
 <?php
 #############################
-#   			     #
+#                            #
 #     Anantha Natarajan.S    #  
-#         112112008	     #
+#         112112008          #
 #         sananth12          #
-#			     #
+#                            #
 #############################
 
 
@@ -80,11 +80,11 @@ if($rep_pass =="")
 if($rep_pass != $password)
 {echo "<p><text style=\"color:red\" >Error:</text> Repeat Password field does'nt match the Password</p><br>";$flag++;}
 
-
+/*
 if (mysql_query("CREATE DATABASE project",$conid))
   {
   echo "<p>Database created</p><br />";
-  }
+  }*/
 
 if($flag==0)
   {
